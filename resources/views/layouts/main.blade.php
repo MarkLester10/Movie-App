@@ -13,7 +13,7 @@
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-4 py-6">
             <ul class="flex flex-col md:flex-row items-center">
             <li>
-                <a href="/" class="flex items-center text-2xl text-gray-500"><img src="/imgs/logo.png" class="w-10 h-10 mr-2" alt="logo">MovieApp</a>
+                <a href="/" class="flex items-center text-2xl text-gray-500"><img src="/imgs/logo.png" class="w-10 h-10 mr-2" alt="logo">MoooV</a>
             </li>
             <li class="md:ml-16 mt-3 md:mt-0">
             <a href="#" class="hover:text-red-500 transition ease duration-500">Movies</a>
