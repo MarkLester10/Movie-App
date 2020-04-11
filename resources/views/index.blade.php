@@ -21,7 +21,7 @@
 
         
         @foreach($npMovies as $movie)
-            <x-movie-card :movie="$movie" :genres="$genres"/>
+            <x-movie-card :movie="$movie"/>
         @endforeach
 
         </div>
