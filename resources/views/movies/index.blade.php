@@ -8,10 +8,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
             @foreach($popularMovies as $movie)
-                <x-movie-card :movie="$movie" :genres="$genres"/>
+                <x-movie-card :movie="$movie"/>
             @endforeach
 
         </div>
+    </div>
         <!-- end of popular movies -->
 
 
@@ -25,5 +26,6 @@
         @endforeach
 
         </div>
+     </div>
     </div>
 @endsection

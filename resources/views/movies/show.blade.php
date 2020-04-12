@@ -4,7 +4,9 @@
 @section('content')
     <div class="movie-info border-b border-gray-800">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
-            <img src="{{$movie['poster_path']}}" class="w-64 md:w-96 mx-auto"  alt="image">
+            <div class="flex-none">
+                <img src="{{$movie['poster_path']}}" class="w-64 md:w-96 mx-auto"  alt="image">
+            </div>
             <div class="md:ml-24">
                 <h2 class="text-4xl font-semibold sm:mt-6 md:mt-6">{{$movie['title']}}</h2>
                 <small class="text-red-500 text-xl mt-16">{{$movie['tagline']}}</small>
@@ -39,7 +41,7 @@
                     <button
                      @click="isOpen = true" class="flex inline-flex items-center bg-orange-500 text-gray-900 rounded font-semibold px-5 py-4
                     hover:bg-red-600 hover:text-white transition ease-in-out duration-500">
-                    <i class="fa fa-play-circle text-2xl"></i>
+                    <div class="text-2xl"><i class="fa fa-play-circle"></i></div>
                     <span class="ml-2">Play Trailer</span>
                     </button>
                 </div>
@@ -84,11 +86,11 @@
 
                 @foreach($movie['cast'] as $cast)
                         <div class="mt-8">
-                            <a href="#">
+                            <a href="{{route('actors.show', $cast['id'])}}">
                                 <img src="https://image.tmdb.org/t/p/w200/{{$cast['profile_path']}}" alt="" class="hover:opacity-50 transition ease-in-out duration-500">
                             </a>
                             <div class="mt-2">
-                                <a href="#" class="text-lg mt-2 hover:text-red-500 transition ease duration-500">{{$cast['name']}}</a>
+                                <a href="{{route('actors.show', $cast['id'])}}" class="text-lg mt-2 hover:text-red-500 transition ease duration-500">{{$cast['name']}}</a>
                                 <div class="text-gray-400 text-sm">
                                 as {{$cast['character']}}
                                 </div>
