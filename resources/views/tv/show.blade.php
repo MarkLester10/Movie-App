@@ -2,33 +2,31 @@
 
 
 @section('content')
-    <div class="movie-info border-b border-gray-800">
+    <div class="tv-info border-b border-gray-800">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
             <div class="flex-none">
-                <img src="{{$movie['poster_path']}}" class="w-64 md:w-96 mx-auto"  alt="image">
+                <img src="{{$tvshow['poster_path']}}" class="w-64 md:w-96 mx-auto"  alt="image">
             </div>
             <div class="md:ml-24">
-                <h2 class="text-4xl font-semibold sm:mt-6 md:mt-6">{{$movie['title']}}</h2>
-                <small class="text-red-500 text-xl mt-16">{{$movie['tagline']}}</small>
+                <h2 class="text-4xl font-semibold sm:mt-6 md:mt-6">{{$tvshow['name']}}</h2>
                 <div class="flex items-center text-gray-400 text-sm mt-2">
                         <span><i class="fa fa-star text-orange-500"></i></span>
-                        <span class="ml-1">{{$movie['vote_average']}}</span>
+                        <span class="ml-1">{{$tvshow['vote_average']}}</span>
                         <span class="mx-2">|</span>
-                        <span>{{$movie['release_date']}}</span>
+                        <span>{{$tvshow['first_air_date']}}</span>
                         <span class="mx-2">|</span>
                         <span>
-                           {{$movie['genres']}}
+                           {{$tvshow['genres']}}
                         </span>
                 </div>
-                <p class="text-gray-300 mt-6">{{$movie['overview']}}</p>
+                <p class="text-gray-300 mt-6">{{$tvshow['overview']}}</p>
                 
                 <div class="mt-12">
-                    <h4 class="text-white font-semibold">Featured Crew</h4>
                     <div class="flex mt-4">
-                    @foreach($movie['crew'] as $crew)
+                    @foreach($tvshow['created_by'] as $crew)
                         <div class="mr-8">
                                 <div>{{$crew['name']}}</div>
-                                <div class="text-sm text-gray-400">{{$crew['job']}}</div>
+                                <div class="text-sm text-gray-400">Creator</div>
                         </div>
                     @endforeach
                     </div>
@@ -36,7 +34,7 @@
 
                 <!-- video trailer -->
                 <div x-data="{isOpen: false}">
-                @if(count($movie['videos']['results']) > 0)
+                @if(count($tvshow['videos']['results']) > 0)
                 <div class="mt-12">
                     <button
                      @click="isOpen = true" class="flex inline-flex items-center bg-orange-500 text-gray-900 rounded font-semibold px-5 py-4
@@ -62,7 +60,7 @@
                                 <div class="responsive-container overflow-hidden relative" style="padding-top: 56.25%;">
                                     <iframe width="560" height="315" class="responsive-iframe absolute
                                     top-0 left-0 w-full h-full" 
-                                    src="https://youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" 
+                                    src="https://youtube.com/embed/{{$tvshow['videos']['results'][0]['key']}}" 
                                     style="border:0;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                 </div>
                             </div>
@@ -76,18 +74,18 @@
             </div>
         </div>
     </div>
-    <!-- end movie info -->
+    <!-- end tvshow info -->
 
 
-    <div class="movie-casts border-b border-gray-800">
+    <div class="tvshow-casts border-b border-gray-800">
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Casts</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
-                @foreach($movie['cast'] as $cast)
+                @foreach($tvshow['cast'] as $cast)
                         <div class="mt-8">
                             <a href="{{route('actors.show', $cast['id'])}}">
-                                <img src="{{$cast['profile_path']}}" alt="" class="hover:opacity-50 transition ease-in-out duration-500">
+                                <img src="{{$cast['profile_path']}}" alt="alright" class="hover:opacity-50 transition ease-in-out duration-500">
                             </a>
                             <div class="mt-2">
                                 <a href="{{route('actors.show', $cast['id'])}}" class="text-lg mt-2 hover:text-red-500 transition ease duration-500">{{$cast['name']}}</a>
@@ -104,11 +102,11 @@
 
     <!-- end of casts -->
 
-    <div class="movie-images" x-data="{isOpen:false, image:''}">
+    <div class="tvshow-images" x-data="{isOpen:false, image:''}">
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach($movie['backdrops'] as $image)
+                @foreach($tvshow['backdrops'] as $image)
                     <div class="mt-8">
                         <a href="#" 
                         @click.prevent="
@@ -143,11 +141,11 @@
     </div>
     <!-- end of images -->
 
-    <div class="movie-posters">
+    <div class="tvshow-posters">
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Posters</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                @foreach($movie['posters'] as $image)
+                @foreach($tvshow['posters'] as $image)
                     <div class="mt-8">
                         <a href="#">
                             <img src="{{'https://image.tmdb.org/t/p/w300/'.$image['file_path']}}" alt="" class="hover:opacity-50 transition ease-in-out duration-500">

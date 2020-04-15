@@ -55,10 +55,10 @@
 
                         @foreach($knownForMovies as $movie)
                             <div class="mt-4">
-                                <a href="{{route('movies.show', $movie['id'])}}">
+                                <a href="{{$movie['linkToPage']}}">
                                     <img src="{{$movie['poster_path']}}" alt="movie" class="hover:opacity-50 transition ease-in-out duration-500">
                                 </a>
-                                <a href="{{route('movies.show', $movie['id'])}}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1">{{ $movie['title'] }}</a>
+                                <a href="{{$movie['linkToPage']}}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1">{{ $movie['title'] }}</a>
                             </div>
                         @endforeach
 
