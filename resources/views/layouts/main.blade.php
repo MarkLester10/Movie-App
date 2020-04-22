@@ -32,7 +32,7 @@
                 <livewire:search-dropdown/>
                 <div class="md:ml-4 mt-3 md:mt-0">
                     <a href="">
-                    <img src="/imgs/avatar.jpg" alt="#" class="rounded-full w-8 h-8">
+                    <img src="/imgs/logo.jpeg" alt="#" class="rounded-full w-8 h-8">
                     </a>
                 </div>
 
