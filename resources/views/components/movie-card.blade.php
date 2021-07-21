@@ -8,8 +8,8 @@
                <div class="flex items-center text-gray-400 text-sm mt-1">
                   <span><i class="fa fa-star text-orange-500"></i></span>
                   <span class="ml-1">{{$movie['vote_average']}}</span>
-                  {{-- <span class="mx-2">|</span>
-                  <span>{{$movie['release_date']}}</span> --}}
+                  <span class="mx-2">|</span>
+                  <span>{{$movie['release_date']}}</span>
                </div>
                <div class="text-gray-400 text-sm">{{$movie['genres']}}</div>
             </div>
